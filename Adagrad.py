@@ -2,6 +2,7 @@ import numpy as np
 
 def giatriham(x):
     return 30 + np.sum((x**2) - 10 * np.cos(2 * 3.14159265 * x))
+
 def daoham(x):
     return 2 * x + 20 * 3.14159265 * np.sin(2 * 3.14159265 * x)
 
@@ -19,9 +20,9 @@ def adagrad():
         g = g_new 
         x_moi = x - a / np.sqrt(g + e) * daoham(x)
         x = x_moi
-        
-    ket_qua = giatriham(x)
-    return ket_qua
+
+    fx = giatriham(x)
+    return fx
 
 mangkq = []
 

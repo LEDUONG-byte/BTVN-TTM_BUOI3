@@ -1,10 +1,8 @@
 import numpy as np
 
-# Giữ nguyên hàm tính giá trị
 def giatriham(x):
     return 30 + np.sum((x**2) - 10 * np.cos(2 * 3.14159265 * x))
 
-# Giữ nguyên hàm tính đạo hàm
 def daoham(x):
     return 2 * x + 20 * 3.14159265 * np.sin(2 * 3.14159265 * x)
 
@@ -33,8 +31,9 @@ def adam():
         x_moi = x - a * v_mu / (np.sqrt(g_mu) + e)
         x = x_moi
 
-    ket_qua = giatriham(x)
-    return ket_qua
+    fx = giatriham(x)
+    return fx
+
 mangkq = []
 for k in range(20):
     kq = adam()
