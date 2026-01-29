@@ -9,7 +9,8 @@ def daoham(x):
 
 def momentum():
     x = np.random.uniform(-5.12, 5.12, 3)
-    v = np.array([0.0, 0.0, 0.0]) # Để dạng float cho chắc
+    v = np.array([0, 0, 0])
+    e = 0.001
     a = 0.01    
     b = 0.9     
     t = 1000    
@@ -29,7 +30,7 @@ def momentum():
 
 def adagrad():
     x = np.random.uniform(-5.12, 5.12, 3)
-    g = np.array([0.0, 0.0, 0.0]) 
+    g = np.array([0, 0, 0]) 
     a = 0.01    
     e = 0.001    
     t = 1000    
@@ -50,8 +51,8 @@ def adagrad():
 
 def adam():
     x = np.random.uniform(-5.12, 5.12, 3)
-    g = np.array([0.0, 0.0, 0.0])
-    v = np.array([0.0, 0.0, 0.0])
+    g = np.array([0, 0, 0])
+    v = np.array([0, 0, 0])
     a = 0.01    
     b = 0.9    
     p = 0.9  
