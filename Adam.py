@@ -1,34 +1,45 @@
 import numpy as np
 
+# Giữ nguyên hàm tính giá trị
 def giatriham(x):
     return 30 + np.sum((x**2) - 10 * np.cos(2 * 3.14159265 * x))
+
+# Giữ nguyên hàm tính đạo hàm
 def daoham(x):
     return 2 * x + 20 * 3.14159265 * np.sin(2 * 3.14159265 * x)
 
-def adagrad():
+def adam():
     x = np.random.uniform(-5.12, 5.12, 3)
-    g = np.array([0, 0, 0]) 
+    g = np.array([0, 0, 0])
+    v = np.array([0, 0, 0])
     a = 0.01     
+    b = 0.9     
+    p = 0.9  
     e = 0.001     
     t = 1000     
-    i = 0        
+    i = 0       
     
     while i < t:
-        i = i + 1
-        g_new = g + (daoham(x)**2)
-        g = g_new 
-        x_moi = x - a / np.sqrt(g + e) * daoham(x)
+        i = i + 1 
+        v_new = b * v + (1 - b) * daoham(x)
+        v = v_new
+
+        g_new = p * g + (1 - p) * (daoham(x)**2)
+        g = g_new
+
+        v_mu = v / (1 - (b ** i))
+        g_mu = g / (1 - (p ** i))
+
+        x_moi = x - a * v_mu / (np.sqrt(g_mu) + e)
         x = x_moi
-        
+
     ket_qua = giatriham(x)
     return ket_qua
-
 mangkq = []
-
-for i in range(20):
-    kq = adagrad()
+for k in range(20):
+    kq = adam()
     mangkq.append(kq)
-    print(f"{i+1}: {kq}")
+    print(f"{k+1}: {kq}")
 
 mang_kq = np.array(mangkq)
 min_val = np.min(mang_kq)

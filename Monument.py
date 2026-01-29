@@ -8,17 +8,17 @@ def daoham(x):
 
 def momentum():
     x = np.random.uniform(-5.12, 5.12, 3)
-    v = np.zeros(3)
+    v = np.array([0, 0, 0])
     a = 0.01    
     b = 0.9     
     t = 1000    
     i = 0 
     while i < t:
+        i = i + 1
         v_new = b*v + a * daoham(x)
         v = v_new
         x_moi = x - v
         x = x_moi
-        i = i + 1
     ket_qua = giatriham(x)
     return ket_qua
 
