@@ -17,7 +17,7 @@ def adam():
     t = 1000     
     i = 0       
     
-    while i < t:
+    while i < t and daoham(x) > e:
         i = i + 1 
         v_new = b * v + (1 - b) * daoham(x)
         v = v_new

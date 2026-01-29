@@ -16,7 +16,7 @@ def momentum():
     i = 0 
     ls = []
     
-    while i < t:
+    while i < t and daoham(x) > e:
         ls.append(giatriham(x)) 
         i = i + 1
         v_new = b*v + a * daoham(x)
@@ -37,7 +37,7 @@ def adagrad():
     
     ls = [] 
     
-    while i < t:
+    while i < t and daoham(x) > e:
         ls.append(giatriham(x)) 
         i = i + 1
         g_new = g + (daoham(x)**2)
@@ -60,7 +60,7 @@ def adam():
     i = 0       
     ls = []
     
-    while i < t:
+    while i < t and daoham(x) > e:
         ls.append(giatriham(x)) 
         i = i + 1 
         v_new = b * v + (1 - b) * daoham(x)
